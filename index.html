@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiTasking</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>MultiTasking</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Panel de Login -->
+        <div class="login active">
+            <h2>Bienvenido a MultiTasking</h2>
+            <p>Inicia sesión o accede sin credenciales.</p>
+            <div class="login-buttons">
+                <button onclick="showPanel('main-panel')">Iniciar sin credenciales</button>
+                <button onclick="showPanel('register-form')">Crear una cuenta</button>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+            <button class="github-button" onclick="window.open('https://github.com', '_blank')">GitHub</button>
+        </div>
+
+        <!-- Panel de Registro -->
+        <div class="register-form">
+            <h2>Crear una cuenta</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-email">Correo electrónico:</label>
+                    <input type="email" id="register-email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Contraseña:</label>
+                    <input type="password" id="register-password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+
+        <!-- Panel Principal -->
+        <div class="main-panel">
+            <div class="user-info">
+                <img src="https://m.media-amazon.com/images/I/51tfL1b7swL._AC_UF894,1000_QL80_.jpg" alt="Imagen de usuario" class="user-image">
+                <h2>Nombre de Usuario</h2>
+            </div>
+            <div class="main-panel-buttons">
+                <button onclick="showPanel('task-form')">Crear nueva tarea</button>
+                <input type="text" placeholder="Buscar tarea" class="search-tasks">
+            </div>
+            <nav class="main-nav">
+                <button onclick="showSection('task-list')">Ver Tareas</button>
+                <button onclick="showSection('user-list')">Ver Usuarios</button>
+                <button onclick="showSection('category-list')">Ver Categorías</button>
+            </nav>
+            <!-- Contenedores para secciones -->
+            <div id="task-list" class="section">
+                <h3>Lista de Tareas</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre de la Tarea</th>
+                            <th>Responsable</th>
+                            <th>Fecha de Entrega</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí puedes agregar las filas de las tareas -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="user-list" class="section">
+                <h3>Lista de Usuarios</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo Electrónico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí puedes agregar las filas de los usuarios -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="category-list" class="section">
+                <h3>Lista de Categorías</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Tareas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí puedes agregar las filas de las categorías -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Panel Formulario de Tarea -->
+        <div class="task-form">
+            <h2>Crear Nueva Tarea</h2>
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-name">Nombre de la Tarea:</label>
+                    <input type="text" id="task-name" placeholder="Nombre de la tarea" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-person">Asignar Persona a Cargo:</label>
+                    <input type="text" id="task-person" placeholder="Nombre de la persona">
+                </div>
+                <div class="form-group">
+                    <label for="task-date">Asignar Fecha de Culminación:</label>
+                    <input type="date" id="task-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-status">Estado de la Tarea:</label>
+                    <select id="task-status">
+                        <option value="unassigned">Sin Asignar</option>
+                        <option value="assigned">Asignado</option>
+                        <option value="completed">Completado</option>
+                        <option value="delayed">Completado con Retraso</option>
+                        <option value="not-presented">No Presentado</option>
+                    </select>
+                </div>
+                <button type="submit">Crear Tarea</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MultiTasking. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
